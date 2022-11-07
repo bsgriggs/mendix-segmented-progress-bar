@@ -1,0 +1,50 @@
+:root {
+    --border-radius: 16px;
+}
+
+.spb {
+    text-align: center;
+}
+
+.spb .spb-progress-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.spb .spb-progress-bar-row .spb-progress-bar {
+    display: flex;
+    flex-grow: 1;
+    border: 1px solid lightgray;
+    border-radius: var(--border-radius);
+}
+.spb .spb-progress-bar-row .spb-progress-bar .spb-segment {
+    height: var(--border-radius);
+}
+.spb .spb-progress-bar-row .spb-progress-bar .spb-segment:first-child {
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.spb .spb-progress-bar-row .spb-progress-bar .spb-segment:last-child {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.spb .spb-summary {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+.spb .spb-summary .spb-summary-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.spb .spb-summary .spb-summary-item .spb-summary-color{
+    border-radius: var(--border-radius);
+    border: 1px solid lightgray;
+    width: 12px;
+    height: 12px;
+}
