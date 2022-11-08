@@ -9,8 +9,6 @@ import { Big } from "big.js";
 
 export type DataTypeEnum = "static" | "dynamic";
 
-export type NumberTypeEnum = "rawValue" | "percentage";
-
 export interface StaticSegmentListType {
     staticCaption: DynamicValue<string>;
     staticValue: DynamicValue<Big>;
@@ -32,7 +30,6 @@ export interface SegmentedProgressBarContainerProps {
     tabIndex?: number;
     title?: DynamicValue<string>;
     dataType: DataTypeEnum;
-    numberType: NumberTypeEnum;
     maxValue?: DynamicValue<Big>;
     staticSegmentList: StaticSegmentListType[];
     dynamicSegmentList: ListValue;
@@ -55,7 +52,6 @@ export interface SegmentedProgressBarPreviewProps {
     readOnly: boolean;
     title: string;
     dataType: DataTypeEnum;
-    numberType: NumberTypeEnum;
     maxValue: string;
     staticSegmentList: StaticSegmentListPreviewType[];
     dynamicSegmentList: {} | { type: string } | null;

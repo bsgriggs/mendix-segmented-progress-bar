@@ -1,4 +1,5 @@
 import { SegmentedProgressBarPreviewProps } from "../typings/SegmentedProgressBarProps";
+import { hideNestedPropertiesIn, hidePropertiesIn, hidePropertyIn } from "./utils/PageEditorUtils";
 
 export type Platform = "web" | "desktop";
 
@@ -101,12 +102,28 @@ export function getProperties(
     _values: SegmentedProgressBarPreviewProps,
     defaultProperties: Properties /* , target: Platform*/
 ): Properties {
-    // Do the values manipulation here to control the visibility of properties in Studio and Studio Pro conditionally.
-    /* Example
-    if (values.myProperty === "custom") {
-        delete defaultProperties.properties.myOtherProperty;
+    switch (_values.dataType) {
+        case "static":
+            hidePropertiesIn(defaultProperties, _values, [
+                "dynamicSegmentList",
+                "dynamicCaption",
+                "dynamicColor",
+                "dynamicOnClick",
+                "dynamicValue"
+            ]);
+            break;
+        case "dynamic":
+            for (let index = 0; index < _values.staticSegmentList.length; index++) {
+                hideNestedPropertiesIn(defaultProperties, _values, "staticSegmentList", index, [
+                    "staticCaption",
+                    "staticColor",
+                    "staticOnClick",
+                    "staticValue"
+                ]);
+            }
+            hidePropertyIn(defaultProperties, _values, "staticSegmentList")
+            break;
     }
-    */
     return defaultProperties;
 }
 

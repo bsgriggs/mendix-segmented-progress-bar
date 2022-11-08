@@ -37,7 +37,6 @@ export function SegmentedProgressBar({
     useEffect(() => {
         const newMaxValue =
             maxValue !== undefined && maxValue.value !== undefined ? maxValue.value.toNumber() : undefined;
-        console.info("use effect - max value", maxValue);
         setAdjustedMaxValue(newMaxValue);
     }, [maxValue]);
 
@@ -49,8 +48,8 @@ export function SegmentedProgressBar({
                 setSegmentList(
                     dynamicSegmentList.items.map(dynamicSegment => {
                         const objectValue = dynamicValue.get(dynamicSegment).value;
-                        const value = objectValue?.toNumber() ;
-                        sum += value || 0;
+                        const value = objectValue?.toNumber() || 0;
+                        sum += value;
                         return {
                             caption: dynamicCaption.get(dynamicSegment).value,
                             color: dynamicColor.get(dynamicSegment).value,
@@ -75,8 +74,8 @@ export function SegmentedProgressBar({
             setSegmentList(
                 staticSegmentList.map(staticSegment => {
                     const objectValue = staticSegment.staticValue.value;
-                    const value = objectValue?.toNumber() ;
-                    sum += value || 0;
+                    const value = objectValue?.toNumber() || 0;
+                    sum += value;
                     return {
                         caption: staticSegment.staticCaption.value,
                         color: staticSegment.staticColor.value,

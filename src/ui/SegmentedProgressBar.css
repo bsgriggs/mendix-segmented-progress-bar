@@ -18,17 +18,18 @@
     display: flex;
     flex-grow: 1;
     border: 1px solid lightgray;
+    background-color: white;
     border-radius: var(--border-radius);
-}
-.spb .spb-progress-bar-row .spb-progress-bar .spb-segment {
     height: var(--border-radius);
 }
 .spb .spb-progress-bar-row .spb-progress-bar .spb-segment:first-child {
-    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
 }
 
 .spb .spb-progress-bar-row .spb-progress-bar .spb-segment:last-child {
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
 }
 
 .spb .spb-summary {

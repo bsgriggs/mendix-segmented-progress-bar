@@ -24,14 +24,6 @@
                         <enumerationValue key="dynamic">Dynamic</enumerationValue>
                     </enumerationValues>
                 </property>
-                <property key="numberType" type="enumeration" defaultValue="rawValue">
-                    <caption>Number Type</caption>
-                    <description>Is the value provided the raw value or a percentage?</description>
-                    <enumerationValues>
-                        <enumerationValue key="rawValue">Raw Value</enumerationValue>
-                        <enumerationValue key="percentage">Percentange</enumerationValue>
-                    </enumerationValues>
-                </property>
                 <property key="maxValue" type="expression" defaultValue="" required="false">
                     <caption>Max Value</caption>
                     <description>The value that will be treated as reaching 100%. If left empty, the sum of the each segments value will be treated as 100%.</description>
