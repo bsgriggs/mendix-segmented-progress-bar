@@ -24,11 +24,14 @@ const calculateSum = (segmentList: Segment[], valueSum: number, maxValue: number
 };
 
 const calculatePercentage = (value: number, valueSum: number, maxValue?: number): number => {
-    return (value / (maxValue && maxValue > valueSum ? maxValue : valueSum)) * 100
-}
+    return (value / (maxValue && maxValue > valueSum ? maxValue : valueSum)) * 100;
+};
 
-export const ProgressBar = ({ segmentList, showPercentSum, valueSum, maxValue }: ProgressBarProps): ReactElement => (
-    <div className="spb-progress-bar-row">
+
+
+export const ProgressBar = ({ segmentList, showPercentSum, valueSum, maxValue }: ProgressBarProps): ReactElement => {
+    console.info("sanitized list",segmentList)
+    return (<div className="spb-progress-bar-row">
         <div className="spb-progress-bar">
             {segmentList
                 .filter(segment => segment.value !== undefined && segment.value > 0)
@@ -43,3 +46,4 @@ export const ProgressBar = ({ segmentList, showPercentSum, valueSum, maxValue }:
         {showPercentSum && <span className="mx-text">{`${calculateSum(segmentList, valueSum, maxValue || 0)} %`}</span>}
     </div>
 );
+}

@@ -8,8 +8,8 @@ type SummaryItemProps = {
 };
 
 const formatValue = (value: number) => {
-    return Math.round(value * 10) / 10  
-}
+    return Math.round(value * 10) / 10;
+};
 
 export const SummaryItem = ({ caption, color, value, onClick }: SummaryItemProps): ReactElement => (
     <div className="spb-summary-item" onClick={() => (onClick !== undefined ? onClick() : {})}>

@@ -121,7 +121,7 @@ export function getProperties(
                     "staticValue"
                 ]);
             }
-            hidePropertyIn(defaultProperties, _values, "staticSegmentList")
+            hidePropertyIn(defaultProperties, _values, "staticSegmentList");
             break;
     }
     return defaultProperties;

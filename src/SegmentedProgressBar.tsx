@@ -17,7 +17,6 @@ export function SegmentedProgressBar({
     name,
     title,
     dataType,
-    // numberType,
     maxValue,
     staticSegmentList,
     dynamicSegmentList,
@@ -33,7 +32,7 @@ export function SegmentedProgressBar({
     const [valueSum, setValueSum] = useState<number>();
     const [adjustedMaxValue, setAdjustedMaxValue] = useState<number>();
 
-    //Update Max Value
+    // Update Max Value
     useEffect(() => {
         const newMaxValue =
             maxValue !== undefined && maxValue.value !== undefined ? maxValue.value.toNumber() : undefined;
@@ -53,7 +52,7 @@ export function SegmentedProgressBar({
                         return {
                             caption: dynamicCaption.get(dynamicSegment).value,
                             color: dynamicColor.get(dynamicSegment).value,
-                            value: value,
+                            value,
                             onClick: () => {
                                 if (dynamicOnClick !== undefined) {
                                     callMxAction(dynamicOnClick.get(dynamicSegment));
@@ -79,7 +78,7 @@ export function SegmentedProgressBar({
                     return {
                         caption: staticSegment.staticCaption.value,
                         color: staticSegment.staticColor.value,
-                        value: value,
+                        value,
                         onClick: () => callMxAction(staticSegment.staticOnClick)
                     } as Segment;
                 })
