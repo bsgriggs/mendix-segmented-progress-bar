@@ -20,12 +20,15 @@ export function SegmentedProgressBar({
     maxValue,
     staticSegmentList,
     dynamicSegmentList,
-    dynamicCaption,
+    dynamicSummaryCaption,
+    dynamicSummaryValue,
     dynamicColor,
     dynamicValue,
     dynamicOnClick,
     showPercentSum,
     showSummary,
+    summaryTextType,
+    showSummaryTotal,
     style
 }: SegmentedProgressBarContainerProps): ReactElement {
     const [segmentList, setSegmentList] = useState<Segment[]>([]);
@@ -50,9 +53,11 @@ export function SegmentedProgressBar({
                         const value = objectValue?.toNumber() || 0;
                         sum += value;
                         return {
-                            caption: dynamicCaption.get(dynamicSegment).value,
+                            caption: dynamicSummaryCaption.get(dynamicSegment).value as string,
                             color: dynamicColor.get(dynamicSegment).value,
                             value,
+                            summaryValue:
+                                summaryTextType === "manual" ? dynamicSummaryValue.get(dynamicSegment) : undefined,
                             onClick: () => {
                                 if (dynamicOnClick !== undefined) {
                                     callMxAction(dynamicOnClick.get(dynamicSegment));
@@ -64,6 +69,7 @@ export function SegmentedProgressBar({
                 setValueSum(sum);
             }
         }
+        /* eslint-disable react-hooks/exhaustive-deps */
     }, [dynamicSegmentList]);
 
     // Load Static Segment List
@@ -76,15 +82,17 @@ export function SegmentedProgressBar({
                     const value = objectValue?.toNumber() || 0;
                     sum += value;
                     return {
-                        caption: staticSegment.staticCaption.value,
+                        caption: staticSegment.staticSummaryCaption.value,
                         color: staticSegment.staticColor.value,
                         value,
+                        summaryValue: summaryTextType === "manual" ? staticSegment.staticSummaryValue.value : undefined,
                         onClick: () => callMxAction(staticSegment.staticOnClick)
                     } as Segment;
                 })
             );
             setValueSum(sum);
         }
+        /* eslint-disable react-hooks/exhaustive-deps */
     }, [staticSegmentList]);
 
     if (title?.status !== ValueStatus.Loading && valueSum !== undefined) {
@@ -97,7 +105,9 @@ export function SegmentedProgressBar({
                     showPercentSum={showPercentSum}
                     maxValue={adjustedMaxValue}
                 />
-                {showSummary && <Summary segmentList={segmentList} valueSum={valueSum} />}
+                {showSummary && (
+                    <Summary segmentList={segmentList} valueSum={valueSum} showSummaryTotal={showSummaryTotal} />
+                )}
             </div>
         );
     } else {

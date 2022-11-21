@@ -4,20 +4,24 @@
  * @author Mendix UI Content Team
  */
 import { CSSProperties } from "react";
-import { ActionValue, DynamicValue, ListValue, ListActionValue, ListAttributeValue } from "mendix";
+import { ActionValue, DynamicValue, ListValue, ListActionValue, ListAttributeValue, ListExpressionValue } from "mendix";
 import { Big } from "big.js";
 
 export type DataTypeEnum = "static" | "dynamic";
 
 export interface StaticSegmentListType {
-    staticCaption: DynamicValue<string>;
+    staticSummaryCaption: DynamicValue<string>;
+    staticSummaryValue: DynamicValue<string>;
     staticValue: DynamicValue<Big>;
     staticColor: DynamicValue<string>;
     staticOnClick?: ActionValue;
 }
 
+export type SummaryTextTypeEnum = "value" | "manual";
+
 export interface StaticSegmentListPreviewType {
-    staticCaption: string;
+    staticSummaryCaption: string;
+    staticSummaryValue: string;
     staticValue: string;
     staticColor: string;
     staticOnClick: {} | null;
@@ -33,12 +37,15 @@ export interface SegmentedProgressBarContainerProps {
     maxValue?: DynamicValue<Big>;
     staticSegmentList: StaticSegmentListType[];
     dynamicSegmentList: ListValue;
-    dynamicCaption: ListAttributeValue<string>;
+    dynamicSummaryCaption: ListExpressionValue<string>;
+    dynamicSummaryValue: ListExpressionValue<string>;
     dynamicValue: ListAttributeValue<Big>;
     dynamicColor: ListAttributeValue<string>;
     dynamicOnClick?: ListActionValue;
     showPercentSum: boolean;
     showSummary: boolean;
+    showSummaryTotal: boolean;
+    summaryTextType: SummaryTextTypeEnum;
 }
 
 export interface SegmentedProgressBarPreviewProps {
@@ -55,10 +62,13 @@ export interface SegmentedProgressBarPreviewProps {
     maxValue: string;
     staticSegmentList: StaticSegmentListPreviewType[];
     dynamicSegmentList: {} | { type: string } | null;
-    dynamicCaption: string;
+    dynamicSummaryCaption: string;
+    dynamicSummaryValue: string;
     dynamicValue: string;
     dynamicColor: string;
     dynamicOnClick: {} | null;
     showPercentSum: boolean;
     showSummary: boolean;
+    showSummaryTotal: boolean;
+    summaryTextType: SummaryTextTypeEnum;
 }

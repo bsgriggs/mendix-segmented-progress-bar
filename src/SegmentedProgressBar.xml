@@ -36,11 +36,18 @@
                     <description />
                     <properties>
                         <propertyGroup caption="Segment">
-                            <property key="staticCaption" type="textTemplate" required="true">
-                                <caption>Caption</caption>
+                            <property key="staticSummaryCaption" type="textTemplate" required="true">
+                                <caption>Summary Caption</caption>
                                 <description></description>
                                 <translations>
-                                    <translation lang="en_US">Segment 1</translation>
+                                    <translation lang="en_US">Segment</translation>
+                                </translations>
+                            </property>
+                            <property key="staticSummaryValue" type="textTemplate" required="true">
+                                <caption>Summary Value</caption>
+                                <description>The value shown for this segment in the summary bar</description>
+                                <translations>
+                                    <translation lang="en_US">Summary</translation>
                                 </translations>
                             </property>
                             <property key="staticValue" type="expression" defaultValue="" required="true">
@@ -65,12 +72,19 @@
                     <description />
                 </property>
                 <!-- Start Dynamic Attributes -->
-                <property key="dynamicCaption" type="attribute" required="true" dataSource="dynamicSegmentList">
-                    <caption>Caption</caption>
+                <property key="dynamicSummaryCaption" type="textTemplate" required="true" dataSource="dynamicSegmentList">
+                    <caption>Summary Caption</caption>
                     <description></description>
-                    <attributeTypes>
-                        <attributeType name="String" />
-                    </attributeTypes>
+                    <translations>
+                        <translation lang="en_US">Segment</translation>
+                    </translations>
+                </property>
+                <property key="dynamicSummaryValue" type="textTemplate" required="true" dataSource="dynamicSegmentList">
+                    <caption>Summary Value</caption>
+                    <description>The value shown for this segment in the summary bar</description>
+                    <translations>
+                        <translation lang="en_US">Summary</translation>
+                    </translations>
                 </property>
                 <property key="dynamicValue" type="attribute" required="true" dataSource="dynamicSegmentList">
                     <caption>Value</caption>
@@ -103,6 +117,18 @@
             <property key="showSummary" type="boolean" defaultValue="true">
                 <caption>Show Summary?</caption>
                 <description>Show the value of each segment below the progress bar?</description>
+            </property>
+            <property key="showSummaryTotal" type="boolean" defaultValue="true">
+                <caption>Show Summary Total?</caption>
+                <description></description>
+            </property>
+            <property key="summaryTextType" type="enumeration" defaultValue="value">
+                <caption>Summary Text Type</caption>
+                <description></description>
+                <enumerationValues>
+                    <enumerationValue key="value">Value</enumerationValue>
+                    <enumerationValue key="manual">Manual</enumerationValue>
+                </enumerationValues>
             </property>
         </propertyGroup>
         <propertyGroup caption="Common">

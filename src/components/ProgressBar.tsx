@@ -27,23 +27,23 @@ const calculatePercentage = (value: number, valueSum: number, maxValue?: number)
     return (value / (maxValue && maxValue > valueSum ? maxValue : valueSum)) * 100;
 };
 
-
-
 export const ProgressBar = ({ segmentList, showPercentSum, valueSum, maxValue }: ProgressBarProps): ReactElement => {
-    console.info("sanitized list",segmentList)
-    return (<div className="spb-progress-bar-row">
-        <div className="spb-progress-bar">
-            {segmentList
-                .filter(segment => segment.value !== undefined && segment.value > 0)
-                .map((segment, index) => (
-                    <ProgressBarSegment
-                        key={index}
-                        segment={segment}
-                        percentage={calculatePercentage(segment.value, valueSum, maxValue)}
-                    />
-                ))}
+    return (
+        <div className="spb-progress-bar-row">
+            <div className="spb-progress-bar">
+                {segmentList
+                    .filter(segment => segment.value !== undefined && segment.value > 0)
+                    .map((segment, index) => (
+                        <ProgressBarSegment
+                            key={index}
+                            segment={segment}
+                            percentage={calculatePercentage(segment.value, valueSum, maxValue)}
+                        />
+                    ))}
+            </div>
+            {showPercentSum && (
+                <span className="mx-text">{`${calculateSum(segmentList, valueSum, maxValue || 0)} %`}</span>
+            )}
         </div>
-        {showPercentSum && <span className="mx-text">{`${calculateSum(segmentList, valueSum, maxValue || 0)} %`}</span>}
-    </div>
-);
-}
+    );
+};

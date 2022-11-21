@@ -104,43 +104,86 @@ export function getProperties(
 ): Properties {
     switch (_values.dataType) {
         case "static":
+            // remove dynamic list options
             hidePropertiesIn(defaultProperties, _values, [
                 "dynamicSegmentList",
-                "dynamicCaption",
+                "dynamicSummaryCaption",
+                "dynamicSummaryValue",
                 "dynamicColor",
                 "dynamicOnClick",
                 "dynamicValue"
             ]);
+
+            if (_values.showSummary) {
+                if (_values.summaryTextType === "value") {
+                    // remove manual options
+                    /* eslint-disable @typescript-eslint/prefer-for-of */
+                    for (let index = 0; index < _values.staticSegmentList.length; index++) {
+                        hideNestedPropertiesIn(defaultProperties, _values, "staticSegmentList", index, [
+                            "staticSummaryValue"
+                        ]);
+                    }
+                }
+            } else {
+                // remove summary options
+                /* eslint-disable @typescript-eslint/prefer-for-of */
+                for (let index = 0; index < _values.staticSegmentList.length; index++) {
+                    hideNestedPropertiesIn(defaultProperties, _values, "staticSegmentList", index, [
+                        "staticSummaryCaption",
+                        "staticSummaryValue"
+                    ]);
+                }
+                hidePropertiesIn(defaultProperties, _values, ["showSummaryTotal", "summaryTextType"]);
+            }
+
             break;
         case "dynamic":
+            // remove static list options
             for (let index = 0; index < _values.staticSegmentList.length; index++) {
                 hideNestedPropertiesIn(defaultProperties, _values, "staticSegmentList", index, [
-                    "staticCaption",
+                    "staticSummaryCaption",
+                    "staticSummaryValue",
                     "staticColor",
                     "staticOnClick",
                     "staticValue"
                 ]);
             }
             hidePropertyIn(defaultProperties, _values, "staticSegmentList");
+
+            if (_values.showSummary) {
+                if (_values.summaryTextType === "value") {
+                    // remove manual options
+                    for (let index = 0; index < _values.staticSegmentList.length; index++) {
+                        hidePropertyIn(defaultProperties, _values, "dynamicSummaryValue");
+                    }
+                }
+            } else {
+                // remove summary options
+                for (let index = 0; index < _values.staticSegmentList.length; index++) {
+                    hidePropertiesIn(defaultProperties, _values, ["dynamicSummaryCaption", "dynamicSummaryValue"]);
+                }
+                hidePropertiesIn(defaultProperties, _values, ["showSummaryTotal", "summaryTextType"]);
+            }
             break;
     }
+
     return defaultProperties;
 }
 
-// export function check(_values: SegmentedProgressBarPreviewProps): Problem[] {
-//     const errors: Problem[] = [];
-//     // Add errors to the above array to throw errors in Studio and Studio Pro.
-//     /* Example
-//     if (values.myProperty !== "custom") {
-//         errors.push({
-//             property: `myProperty`,
-//             message: `The value of 'myProperty' is different of 'custom'.`,
-//             url: "https://github.com/myrepo/mywidget"
-//         });
-//     }
-//     */
-//     return errors;
-// }
+export function check(_values: SegmentedProgressBarPreviewProps): Problem[] {
+    const errors: Problem[] = [];
+    // Add errors to the above array to throw errors in Studio and Studio Pro.
+    /* Example
+    if (values.myProperty !== "custom") {
+        errors.push({
+            property: `myProperty`,
+            message: `The value of 'myProperty' is different of 'custom'.`,
+            url: "https://github.com/myrepo/mywidget"
+        });
+    }
+    */
+    return errors;
+}
 
 // export function getPreview(values: SegmentedProgressBarPreviewProps, isDarkMode: boolean): PreviewProps {
 //     // Customize your pluggable widget appearance for Studio Pro.
