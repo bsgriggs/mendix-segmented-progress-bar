@@ -57,7 +57,7 @@ export function SegmentedProgressBar({
                             color: dynamicColor.get(dynamicSegment).value,
                             value,
                             summaryValue:
-                                summaryTextType === "manual" ? dynamicSummaryValue.get(dynamicSegment) : undefined,
+                                summaryTextType === "manual" ? dynamicSummaryValue.get(dynamicSegment).value : undefined,
                             onClick: () => {
                                 if (dynamicOnClick !== undefined) {
                                     callMxAction(dynamicOnClick.get(dynamicSegment));

@@ -153,16 +153,11 @@ export function getProperties(
             if (_values.showSummary) {
                 if (_values.summaryTextType === "value") {
                     // remove manual options
-                    for (let index = 0; index < _values.staticSegmentList.length; index++) {
-                        hidePropertyIn(defaultProperties, _values, "dynamicSummaryValue");
-                    }
+                    hidePropertyIn(defaultProperties, _values, "dynamicSummaryValue");
                 }
             } else {
                 // remove summary options
-                for (let index = 0; index < _values.staticSegmentList.length; index++) {
-                    hidePropertiesIn(defaultProperties, _values, ["dynamicSummaryCaption", "dynamicSummaryValue"]);
-                }
-                hidePropertiesIn(defaultProperties, _values, ["showSummaryTotal", "summaryTextType"]);
+                hidePropertiesIn(defaultProperties, _values, ["dynamicSummaryCaption", "dynamicSummaryValue", "showSummaryTotal", "summaryTextType"]);
             }
             break;
     }
