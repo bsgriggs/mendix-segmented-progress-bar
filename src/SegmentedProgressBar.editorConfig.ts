@@ -157,7 +157,12 @@ export function getProperties(
                 }
             } else {
                 // remove summary options
-                hidePropertiesIn(defaultProperties, _values, ["dynamicSummaryCaption", "dynamicSummaryValue", "showSummaryTotal", "summaryTextType"]);
+                hidePropertiesIn(defaultProperties, _values, [
+                    "dynamicSummaryCaption",
+                    "dynamicSummaryValue",
+                    "showSummaryTotal",
+                    "summaryTextType"
+                ]);
             }
             break;
     }
