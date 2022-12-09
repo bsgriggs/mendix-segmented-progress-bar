@@ -1,5 +1,5 @@
 import { ReactElement, createElement, useState, Fragment, useEffect } from "react";
-import { SegmentedProgressBarContainerProps } from "../typings/SegmentedProgressBarProps";
+import { SegmentedProgressBarWebContainerProps } from "../typings/SegmentedProgressBarWebProps";
 import { ValueStatus, ActionValue } from "mendix";
 import "./ui/SegmentedProgressBar.css";
 import { Title } from "./components/Title";
@@ -13,7 +13,7 @@ const callMxAction = (action?: ActionValue): void => {
     }
 };
 
-export function SegmentedProgressBar({
+export function SegmentedProgressBarWeb({
     name,
     title,
     dataType,
@@ -30,7 +30,7 @@ export function SegmentedProgressBar({
     summaryTextType,
     showSummaryTotal,
     style
-}: SegmentedProgressBarContainerProps): ReactElement {
+}: SegmentedProgressBarWebContainerProps): ReactElement {
     const [segmentList, setSegmentList] = useState<Segment[]>([]);
     const [valueSum, setValueSum] = useState<number>();
     const [adjustedMaxValue, setAdjustedMaxValue] = useState<number>();

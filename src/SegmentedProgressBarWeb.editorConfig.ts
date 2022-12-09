@@ -1,4 +1,4 @@
-import { SegmentedProgressBarPreviewProps } from "../typings/SegmentedProgressBarProps";
+import { SegmentedProgressBarWebPreviewProps } from "../typings/SegmentedProgressBarWebProps";
 import { hideNestedPropertiesIn, hidePropertiesIn, hidePropertyIn } from "./utils/PageEditorUtils";
 
 export type Platform = "web" | "desktop";
@@ -99,7 +99,7 @@ export type PreviewProps =
     | DatasourceProps;
 
 export function getProperties(
-    _values: SegmentedProgressBarPreviewProps,
+    _values: SegmentedProgressBarWebPreviewProps,
     defaultProperties: Properties /* , target: Platform*/
 ): Properties {
     switch (_values.dataType) {
@@ -170,7 +170,7 @@ export function getProperties(
     return defaultProperties;
 }
 
-export function check(_values: SegmentedProgressBarPreviewProps): Problem[] {
+export function check(_values: SegmentedProgressBarWebPreviewProps): Problem[] {
     const errors: Problem[] = [];
     // Add errors to the above array to throw errors in Studio and Studio Pro.
     /* Example

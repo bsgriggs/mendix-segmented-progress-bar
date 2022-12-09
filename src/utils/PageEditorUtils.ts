@@ -2,7 +2,7 @@
 /**
  * TODO: Include tests for methods
  */
-import { Properties, Property, PropertyGroup } from "../SegmentedProgressBar.editorConfig";
+import { Properties, Property, PropertyGroup } from "../SegmentedProgressBarWeb.editorConfig";
 
 declare type Option<T> = T | undefined;
 

@@ -1,6 +1,6 @@
 import { ReactElement, createElement } from "react";
 import { Segment } from "typings/General";
-import { SegmentedProgressBarPreviewProps } from "../typings/SegmentedProgressBarProps";
+import { SegmentedProgressBarWebPreviewProps } from "../typings/SegmentedProgressBarWebProps";
 import { ProgressBar } from "./components/ProgressBar";
 import { Summary } from "./components/Summary";
 import { Title } from "./components/Title";
@@ -14,7 +14,7 @@ export function preview({
     showSummaryTotal,
     showSummary,
     styleObject
-}: SegmentedProgressBarPreviewProps): ReactElement {
+}: SegmentedProgressBarWebPreviewProps): ReactElement {
     const segmentList: Segment[] = [
         { caption: "A", color: "green", value: 8, summaryValue: "100-92%", onClick: fakeOnClick },
         { caption: "B", color: "lightgreen", value: 8, summaryValue: "92-84%", onClick: fakeOnClick },

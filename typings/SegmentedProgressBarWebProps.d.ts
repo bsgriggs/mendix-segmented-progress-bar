@@ -1,5 +1,5 @@
 /**
- * This file was generated from SegmentedProgressBar.xml
+ * This file was generated from SegmentedProgressBarWeb.xml
  * WARNING: All changes made to this file will be overwritten
  * @author Mendix UI Content Team
  */
@@ -27,7 +27,7 @@ export interface StaticSegmentListPreviewType {
     staticOnClick: {} | null;
 }
 
-export interface SegmentedProgressBarContainerProps {
+export interface SegmentedProgressBarWebContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
@@ -48,7 +48,7 @@ export interface SegmentedProgressBarContainerProps {
     summaryTextType: SummaryTextTypeEnum;
 }
 
-export interface SegmentedProgressBarPreviewProps {
+export interface SegmentedProgressBarWebPreviewProps {
     /**
      * @deprecated Deprecated since version 9.18.0. Please use class property instead.
      */
