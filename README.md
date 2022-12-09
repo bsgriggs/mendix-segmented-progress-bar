@@ -5,10 +5,11 @@ Progress bar with multiple sections to show completion or comparison of values
 
 ## Features
 - title for the bar
+- colors are configurable
 - static or dynamic list of segments 
 - summary below the bar - can be disabled
 - percentage sum on the right - can be disabled
-- max value can either be the sum of the segments or a specific value
+- max value (100%) can either be the sum of the segments or a specific value
 - can show the summary value as a text template - add approprate labels and decimal precision 
 - values are shown when hovering on a segment
 
