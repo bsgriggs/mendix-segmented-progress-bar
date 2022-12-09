@@ -1,5 +1,5 @@
-## SegmentedProgressBar
-[Progress bar with multiple sections to show completion or comparision of values]
+## Segmented Progress Bar
+Progress bar with multiple sections to show completion or comparison of values
 
 ## Features
 [feature highlights]
@@ -8,17 +8,16 @@
 [step by step instructions]
 
 ## Demo project
-[link to sandbox]
+
+https://widgettesting105-sandbox.mxapps.io/p/segemented-progress-bar
 
 ## Issues, suggestions and feature requests
-[link to GitHub issues]
+
+https://github.com/bsgriggs/mendix9-searchable-reference-selector/issues
+
+This widget is open source. Feel free to clone the GitHub repository, make whatever changes you need, and submit a pull request! 
+**Requires Node v14 and NPM v6 - if you already have a different version of Node / NPM, then download [NVM](https://github.com/nvm-sh/nvm) to switch between versions **
 
 ## Development and contribution
 
-1. Install NPM package dependencies by using: `npm install`. If you use NPM v7.x.x, which can be checked by executing `npm -v`, execute: `npm install --legacy-peer-deps`.
-1. Run `npm start` to watch for code changes. On every change:
-    - the widget will be bundled;
-    - the bundle will be included in a `dist` folder in the root directory of the project;
-    - the bundle will be included in the `deployment` and `widgets` folder of the Mendix test project.
-
-[specify contribution]
+Benjamin Griggs
