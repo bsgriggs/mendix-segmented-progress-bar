@@ -10,7 +10,7 @@ Progress bar with multiple sections to show completion or comparison of values
 - summary below the bar - can be disabled
 - percentage sum on the right - can be disabled
 - max value (100%) can either be the sum of the segments or a specific value
-- can show the summary value as a text template - add approprate labels and decimal precision 
+- can show the summary value as a text template - add appropriate labels and decimal precision 
 - values are shown when hovering on a segment
 
 ## Usage
@@ -26,18 +26,18 @@ Progress bar with multiple sections to show completion or comparison of values
   ![manualSummaryTextType](https://github.com/bsgriggs/mendix-segmented-progress-bar/blob/media/manualSummaryTextType.png)  
   **Summary Caption** - The label next to the value in the summary  
   **Summary Value** - The text template shown in the summary for this segment. Can be used to add a label or set the precision of the summary values.  
-  **Value** - The number (decimal) used in calulations for this segment  
+  **Value** - The number (decimal) used in calculations for this segment  
   **Color** - CSS color value. (i.e. blue or #23d82b)  
   **On Click** - Action for when the user clicks on a segment inside the progress bar  
 
   ### Dynamic Segments - List segments from a data source  
-  You will need an entity with the following attributes (it does not *have* to be persistable)  
+  You will need an entity with the following attributes (it does not *have* to be persistance)  
   ![domain](https://github.com/bsgriggs/mendix-segmented-progress-bar/blob/media/domain.png)  
   ![dynamicSegmentItem](https://github.com/bsgriggs/mendix-segmented-progress-bar/blob/media/dynamicSegmentItem.png)  
-  **Dynamic Segment List** - the datasource for the segements
+  **Dynamic Segment List** - the data source for the segments
   **Summary Caption** - The label next to the value in the summary  
   **Summary Value** - The text template shown in the summary for this segment. Can be used to add a label or set the precision of the summary values.  
-  **Value** - The number (decimal) used in calulations for this segment  
+  **Value** - The number (decimal) used in calculations for this segment  
   **Color** - CSS color value. (i.e. blue or #23d82b)  
   **On Click** - Action for when the user clicks on a segment inside the progress bar  
 
