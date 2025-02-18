@@ -1,7 +1,7 @@
 /**
  * This file was generated from SegmentedProgressBarWeb.xml
  * WARNING: All changes made to this file will be overwritten
- * @author Mendix UI Content Team
+ * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
 import { ActionValue, DynamicValue, ListValue, ListActionValue, ListAttributeValue, ListExpressionValue } from "mendix";
@@ -61,7 +61,7 @@ export interface SegmentedProgressBarWebPreviewProps {
     dataType: DataTypeEnum;
     maxValue: string;
     staticSegmentList: StaticSegmentListPreviewType[];
-    dynamicSegmentList: {} | { type: string } | null;
+    dynamicSegmentList: {} | { caption: string } | { type: string } | null;
     dynamicSummaryCaption: string;
     dynamicSummaryValue: string;
     dynamicValue: string;
