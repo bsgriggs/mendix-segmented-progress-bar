@@ -57,6 +57,8 @@ export interface SegmentedProgressBarWebPreviewProps {
     style: string;
     styleObject?: CSSProperties;
     readOnly: boolean;
+    renderMode: "design" | "xray" | "structure";
+    translate: (text: string) => string;
     title: string;
     dataType: DataTypeEnum;
     maxValue: string;

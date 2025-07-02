@@ -1,12 +1,12 @@
 {
   "name": "segmentedprogressbarweb",
   "widgetName": "SegmentedProgressBarWeb",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Progress bar with multiple sections to show completion or comparison of values",
   "copyright": "Benjamin Griggs",
   "author": "Benjamin Griggs",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "license": "MIT",
   "config": {
@@ -25,15 +25,21 @@
     "release": "pluggable-widgets-tools release:web"
   },
   "devDependencies": {
-    "@mendix/pluggable-widgets-tools": "~9.24.0",
+    "@mendix/pluggable-widgets-tools": "~10.21.1",
     "@types/big.js": "^4.0.5"
   },
   "resolutions": {
-      "react": "18.2.0",
-      "react-native": "0.70.7"
+    "react": "18.2.0",
+    "react-native": "0.72.7",
+    "react-dom": "18.2.0",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0"
   },
   "overrides": {
-      "react": "18.2.0",
-      "react-native": "0.70.7"
+    "react": "18.2.0",
+    "react-native": "0.72.7",
+    "react-dom": "18.2.0",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0"
   }
 }
